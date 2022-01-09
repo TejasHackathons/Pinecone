@@ -1,5 +1,5 @@
 const tf = require("@tensorflow/tfjs-node");
-const predictFireMagnitude = async (month, latitude, longitude) => {
+const predictFireMagnitude = async (latitude, longitude, month) => {
   const fireModel = await tf.loadLayersModel(
     "https://raw.githubusercontent.com/TejasHackathons/Pinecone/main/backend/mlmodels/fire/fireModel.json"
   );

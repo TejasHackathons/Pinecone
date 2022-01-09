@@ -1,12 +1,14 @@
 .loginText,
-.signupText {
+.signupText,
+.createDisasterText,
+.logoutText {
   font-weight: 300;
   font-size: 30px;
   font-family: "Helvetica Neue" !important;
 }
 
 .loginText:hover,
-.signupText:hover {
+.signupText:hover .logoutText:hover {
   color: white;
   cursor: pointer;
 }
@@ -21,11 +23,26 @@
 }
 
 .logo {
-  position: absolute;
-  margin-left: -1010px;
   height: 70px;
+  margin-left: 50px;
   width: 70px;
 }
 .logo:hover {
   cursor: pointer;
+}
+
+.createDisasterText {
+  margin-right: 30px;
+}
+
+.createDisasterText:hover {
+  color: white;
+  cursor: pointer;
+}
+
+.navbarContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100vw;
 }

@@ -8,7 +8,8 @@ const phoneNumberValidator = require("../Validators/validPhoneNumber");
 const passwordValidator = require("../Validators/validPassword");
 
 router.post("/signup", (req, res) => {
-  const { phoneNumber, password, homeLat, homeLong, locConsent } = req.body;
+  const { phoneNumber, password, homeLat, homeLong } = req.body;
+
   if (!phoneNumberValidator(phoneNumber))
     return res.status(400).send("Invalid phone number. ");
   if (!passwordValidator.validate(password))
@@ -68,4 +69,15 @@ router.get("/userID", (req, res) => {
 router.get("/isLoggedIn", (req, res) => {
   return res.json({ msg: req.session.userID ? true : false });
 });
+
+router.post("/logout", (req, res) => {
+  req.session.userID
+    ? req.session.destroy((err) => {
+        if (err) return res.status(500).send("Internal server error. ");
+        res.clearCookie(process.env.cookieName);
+        return res.status(200).send("Successfully logged out. ");
+      })
+    : res.status(400).send("Not logged in. ");
+});
+
 module.exports = router;

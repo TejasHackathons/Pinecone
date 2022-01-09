@@ -1,0 +1,23 @@
+.loginContainer {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  margin-top: 100px;
+  gap: 30px;
+}
+
+.textField {
+  background-color: white;
+  width: 50%;
+  margin-top: 30px;
+  border-radius: 5px;
+}
+
+.logInHeader {
+  color: #ff7700;
+  font-size: 60px;
+  font-family: "Helvetica Neue";
+  font-weight: 300;
+}

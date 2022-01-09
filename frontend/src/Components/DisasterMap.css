@@ -1,0 +1,27 @@
+.mapboxgl-marker {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1px solid black;
+}
+
+.fire {
+  background-color: orange;
+}
+
+.hurricane {
+  background-color: #074985;
+}
+
+.tornado {
+  background-color: #444444;
+}
+
+.mapboxgl-popup {
+  max-width: 200px;
+}
+
+.mapboxgl-popup-content {
+  text-align: center;
+  font-family: "Open Sans", sans-serif;
+}

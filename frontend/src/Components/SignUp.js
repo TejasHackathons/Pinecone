@@ -9,22 +9,12 @@ class SignUp extends Component {
     this.state = {
       phoneNumber: "",
       password: "",
-      consentLoc: true,
       error: false,
-      latitude: "-1000",
-      longitude: "-1000",
+      latitude: "",
+      longitude: "",
     };
   }
-  componentDidMount() {
-    if ("geolocation" in navigator) {
-      navigator.geolocation.getCurrentPosition(
-        (pos) => {
-          console.log(pos);
-        },
-        (err) => console.log(err)
-      );
-    }
-  }
+
   render() {
     return (
       <div className="signUpContainer">
@@ -56,6 +46,28 @@ class SignUp extends Component {
             this.setState({ password: evt.target.value });
           }}
         />
+        <TextField
+          className="textField"
+          variant="filled"
+          type="number"
+          placeholder="Latitude"
+          value={this.state.latitude}
+          required
+          onChange={(evt) => {
+            this.setState({ latitude: evt.target.value });
+          }}
+        />
+        <TextField
+          className="textField"
+          variant="filled"
+          type="number"
+          placeholder="Longitude"
+          value={this.state.longitude}
+          required
+          onChange={(evt) => {
+            this.setState({ longitude: evt.target.value });
+          }}
+        />
 
         <Button
           variant="outlined"
@@ -66,17 +78,25 @@ class SignUp extends Component {
             borderColor: "#FF7700",
           }}
           onClick={() => {
-            if (!this.state.phoneNumber == "" && !this.state.password == "") {
+            if (
+              !this.state.phoneNumber == "" &&
+              !this.state.password == "" &&
+              !this.state.latitude == "" &&
+              !this.state.longitude == ""
+            ) {
               axios
                 .post("/account/signUp", {
                   phoneNumber: this.state.phoneNumber,
                   password: this.state.password,
+                  homeLat: this.state.latitude,
+                  homeLong: this.state.longitude,
                 })
                 .then((res) => {
                   this.setState({
                     error: false,
                   });
-                  window.open("/disasterMap", "_self");
+
+                  window.open("/logIn", "_self");
                 })
                 .catch((err) => {
                   this.setState({
