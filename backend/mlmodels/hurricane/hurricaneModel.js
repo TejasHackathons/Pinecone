@@ -9,5 +9,4 @@ const predictTornadoMagnitude = async (month, latitude, longitude) => {
   return prediction;
 };
 
-predictTornadoMagnitude(10, 20, 15).then((mag) => console.log(mag));
 module.exports = predictTornadoMagnitude;
