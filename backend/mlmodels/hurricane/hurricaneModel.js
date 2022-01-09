@@ -1,7 +1,7 @@
 const tf = require("@tensorflow/tfjs-node");
-const predictHurricaneMaxWind = async (month, latitude, longitude) => {
+const predictTornadoMagnitude = async (month, latitude, longitude) => {
   const hurricaneModel = await tf.loadLayersModel(
-    "https://raw.githubusercontent.com/TejasHackathons/Pinecone/main/backend/mlmodels/hurricane/hurricaneModel.json"
+    "https://raw.githubusercontent.com/TejasHackathons/Pinecone/main/backend/mlmodels/tornado/tornadoModel.json"
   );
   const prediction = hurricaneModel
     .predict(tf.tensor([[month, latitude, longitude]]))
@@ -9,5 +9,5 @@ const predictHurricaneMaxWind = async (month, latitude, longitude) => {
   return prediction;
 };
 
-predictHurricaneMaxWind(1, 1, 1).then((wind) => console.log(wind));
-// module.exports = predictHurricaneMaxWind;
+predictTornadoMagnitude(1, 1, 1).then((mag) => console.log(mag));
+module.exports = predictTornadoMagnitude;
