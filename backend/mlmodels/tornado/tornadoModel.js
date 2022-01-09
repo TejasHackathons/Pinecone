@@ -1,7 +1,7 @@
 const tf = require("@tensorflow/tfjs-node");
 const predictTornadoMagnitude = async (month, latitude, longitude) => {
   const tornadoModel = await tf.loadLayersModel(
-    "https://raw.githubusercontent.com/TejasHackathons/Pinecone/main/backend/mlmodels/tornadoModel.json"
+    "https://raw.githubusercontent.com/TejasHackathons/Pinecone/main/backend/mlmodels/tornado/tornadoModel.json"
   );
   const prediction = tornadoModel
     .predict(tf.tensor([[month, latitude, longitude]]))
