@@ -8,7 +8,7 @@ const phoneNumberValidator = require("../Validators/validPhoneNumber");
 const passwordValidator = require("../Validators/validPassword");
 
 router.post("/signup", (req, res) => {
-  const { phoneNumber, password, homeLat, homeLong } = req.body;
+  const { phoneNumber, password, homeLat, homeLong, locConsent } = req.body;
   if (!phoneNumberValidator(phoneNumber))
     return res.status(400).send("Invalid phone number. ");
   if (!passwordValidator.validate(password))

@@ -1,0 +1,26 @@
+.header {
+  font-family: "Helvetica Neue";
+  font-weight: 300;
+}
+
+.homeHeader {
+  font-family: "Helvetica Neue";
+  color: black;
+  font-weight: 300;
+  font-size: 50px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.homeDescription {
+  font-family: "Helvetica Neue";
+  color: red;
+  font-weight: 200;
+  font-size: 20px;
+  position: absolute;
+  top: 57%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

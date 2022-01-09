@@ -9,5 +9,4 @@ const predictFireMagnitude = async (month, latitude, longitude) => {
   return Math.abs(prediction);
 };
 
-predictFireMagnitude(1, 1, 1).then((prediction) => console.log(prediction));
 module.exports = predictFireMagnitude;

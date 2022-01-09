@@ -11,6 +11,8 @@
   "license": "ISC",
   "dependencies": {
     "@supabase/supabase-js": "^1.29.1",
+    "@tensorflow/tfjs": "^3.12.0",
+    "@tensorflow/tfjs-node": "^3.12.0",
     "bcrypt": "^5.0.1",
     "brain.js": "^2.0.0-beta.4",
     "connect-redis": "^6.0.0",

@@ -3,6 +3,7 @@ const morgan = require("morgan");
 const helmet = require("helmet");
 const expressSessions = require("express-session");
 require("dotenv").config();
+const cors = require("cors");
 
 const redis = require("ioredis");
 const redisConn = require("connect-redis")(expressSessions);
@@ -32,8 +33,9 @@ app.use(
 app.use(morgan("dev"));
 app.use(helmet());
 app.use(express.json());
+app.use(cors({ origin: "http://localhost:3000", credentials: true }));
 
-app.use("/accounts", accountRoutes);
+app.use("/account", accountRoutes);
 app.use("/disasters", disasterRoutes);
 
 const PORT = process.env.PORT || 5000;
